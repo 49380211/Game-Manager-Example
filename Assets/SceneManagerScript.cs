@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+
+public class SceneManager : MonoBehaviour
 {
-    public static GameManager Instance;
+
+    public static SceneManager Instance;
 
     private void Awake()
     {
@@ -17,26 +19,25 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-
         DontDestroyOnLoad(this);
-    }   
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            ChangeScene("Game");
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            ChangeScene("Menu");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("inicio");
+
         }
 
-    }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("destino");
 
-    public void ChangeScene(string sceneName)
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        }
     }
 }
+
+    
+   

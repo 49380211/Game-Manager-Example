@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         ResetScene();
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 
     void Update()
@@ -47,10 +53,12 @@ public class GameLogic : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                //cambia a la escena Results
+                ChangeScene("Results");
             }
         }
-        
+
+
+
 
         if (isOn)
         {
